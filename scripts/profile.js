@@ -1,14 +1,24 @@
+document.getElementById("register-btn").addEventListener("click", register);
+var profile = {
+    "tester@example.bg": {
+
+        "password": "123456",
+        "firstName": "Tester",
+        "lastName": "Testov",
+        "phone": "0983252631",
+        "city": "Sofia",
+        "address": "address",
+        "isDeliveryMan": false
+    }
+}
+localStorage.setItem("profiles", JSON.stringify(profile));
+
 window.login = function() {
     var email = document.getElementById("email");
     var password = document.getElementById("password");
-    var profiles = '';
-    if(localStorage.getItem("profiles")){
-        profiles = JSON.parse(localStorage.getItem("profiles"));
-    } else {
-        localStorage.setItem("profiles", "");
-    }
+    var profiles = JSON.parse(localStorage.getItem("profiles"));
 
-    let profiles = JSON.parse(localStorage.getItem("profiles"));
+    profiles = JSON.parse(localStorage.getItem("profiles"));
 
     if(email.value.length === 0){
         email.classList.add("error");
