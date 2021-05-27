@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="txt/javascript" src="scripts/main.js"></script>
+        <script src="scripts/finalizeOrder.js" defer></script>
+        <script src="scripts/profile.js"></script>
+        <link rel="stylesheet" href="style/include.css">
+        <link rel="stylesheet" href="style/takeAndDeliver.css">
+    </head>
+    <body onload="loadParameters()">
+        <header id="page-header">
+            <div class="header-item" id="icon_header_container">
+                <a href="index.html">
+                    <img class="icon" id="logo_img" src="img/icons/logo_hands.png" alt="Лого на TustMe">
+                </a>
+            </div>
+            <div class="header-item" id="profile_header_container">
+                <a id="sign_in" class="header-a" href="login.html">Вход</a>
+                <a id="register"  class="header-a" href="register.html">Регистрация</a>
+                <img class="icon" id="profile_img" src="img/icons/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('finalizeOrder')">
+            </div>
+        </header>
+        <main id="finalizeOrder">
+            <div class="take-and-deliver-page-wrapper">
+                <div class="take-and-deliver-page">
+                    <header class="take-and-deliver_header">
+                        <h1>Финализиране на поръчка</h1>
+                        <button class="gradient-btn" id="btn_edit">Редактирай</button>
+                    </header>
+                    <hr>
+                    <form class="take-and-deliver-menu-item" id="take-and-deliver_overview">
+                        <header class="inner-header">
+                            <p>Информация за пратката</p>
+                        </header>
+                        <div class="grid-container take-and-deliver-section" id="overview_main">
+                            <div class="field one-row-small-screen">
+                                <label for="take_address">Адрес за взимане на пратка:</label>
+                                <input type="text" class="editable" name="take_address" id="take_address" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="delivery_address">Адрес за доставка:</label>
+                                <input type="text" class="editable" name="delivery_address" id="delivery_address" disabled>
+                            </div>
+                            <div class="field one-row">
+                                <label for="shipment_info">Информация за пратката:</label>
+                                <input class="input-wide editable" name="shipment_info" id="shipment_info" disabled>
+                            </div>
+                        </div>
+						<header class="inner-header">
+                            <p>Вид доставка:</p>
+                        </header>
+						<div class="grid-container take-and-deliver-section">
+							<div class="radioButtonContainer">
+								<input class="radioButton" type="radio" id="standartDelivery" checked="checked" class="editable" name="deliveryType" value="standartDelivery">
+								<label for="standartDelivery" >Стандартна доставка</label><br>
+								<input class="radioButton" type="radio" id="expressDelivery" class="editable" name="deliveryType" value="expressDelivery">
+								<label for="expressDelivery" >Експресна доставка</label><br>
+								<input class="radioButton" type="radio" id="heavyDelivery" class="editable" name="deliveryType" value="heavyDelivery">
+								<label for="heavyDelivery" >Тежкотоварна доставка</label>
+							</div>
+                        </div>
+						<header class="inner-header">
+                            <p>Информация за поръчителя</p>
+                        </header>
+                        <div class="grid-container take-and-deliver-section" id="overview_main">
+                            <div class="field one-row-small-screen">
+                                <label for="first_name">Име:</label>
+                                <input type="text" class="editable" name="first_name" id="first_name" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="last_name">Фамилия:</label>
+                                <input type="text" class="editable" name="last_name" id="last_name" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="email">Имейл:</label>
+                                <input type="email" class="editable" name="email" id="email" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="phone">Телефонен номер:</label>
+                                <input type="text" class="editable" name="phone" id="phone" disabled>
+                            </div>
+                        </div>
+                        <header class="inner-header">
+                            <p>Информация за доставката</p>
+                        </header>
+                        <div class="grid-container-two-columns take-and-deliver-section" id="overview_saved_data">
+                            <div class="field one-row-small-screen">
+                                <label for="delivery_price">Цена на доставка:</label>
+                                <input type="text" name="delivery_price" id="delivery_price" disabled>
+                            </div>
+							<div class="field one-row-small-screen">
+                                <label for="deliveryTime">Приблизително време за доставка:</label>
+                                <input name="deliveryTime" id="deliveryTime" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="supplier">Доставчик:</label>
+                                <input type="text" name="supplier" id="supplier" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="rating">Оценка:</label>
+                                <input name="rating" id="rating" disabled>
+                            </div>
+                            <div class="field one-row-small-screen">
+                                <label for="delivery_price">Цена на доставка:</label>
+                                <input type="text" name="delivery_price" id="delivery_price" disabled>
+                            </div>
+                        </div>
+                        <header class="inner-header">
+                            <p>Начин на плащане:</p>
+                        </header>
+						<div class="grid-container take-and-deliver-section">
+							<div class="radioButtonContainer">
+								<input class="radioButton" type="radio" id="masterCard" checked="checked" name="payementType" value="masterCard" onclick="ShowHideCardPayementDataDiv()"/>
+								<label for="masterCard" ><img src="img/icons/master_card.png" alt="Master Card"></label><br>
+								<input class="radioButton" type="radio" id="visa" name="payementType" value="visa" onclick="ShowHideCardPayementDataDiv()"/>
+								<label for="visa" ><img src="img/icons/visa.png" alt="Visa"></label><br>
+								<input class="radioButton" type="radio" id="cashOnDelivery" name="payementType" value="cashOnDelivery" onclick="ShowHideCardPayementDataDiv()"/>
+								<label for="cashOnDelivery" >Наложен платеж</label>
+							</div>
+                        </div>
+						<div id="cardPayementData">
+							<header class="inner-header">
+								<p>Данни за плащане с карта:</p>
+							</header>
+							<div class="grid-container-two-columns take-and-deliver-section" id="overview_saved_data">
+								<div class="field one-row-small-screen">
+									<label for="card_num">Номер на карта:</label>
+									<input type="number" name="card_num" id="card_num">
+								</div>
+								<div class="field one-row-small-screen">
+									<label for="card_owner">Притежател:</label>
+									<input name="card_owner" id="card_owner">
+								</div>
+								<div class="field one-row-small-screen">
+									<label for="card_validity">Дата на валидност:</label>
+									<input type="number" name="card_validity" placeholder="XX/XX" id="card_validity">
+								</div>
+								<div class="field one-row-small-screen">
+									<label for="securityCode">Код за защита:</label>
+									<input type="number" name="securityCode" placeholder="XXX" id="securityCode">
+								</div>
+							</div>
+                        </div>
+						<div>
+							<button class="gradient-btn" type="button" id="btn_finalize">Завършване</button>
+						</div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

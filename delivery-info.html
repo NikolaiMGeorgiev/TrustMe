@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/delivery.css" />
+        <link rel="stylesheet" href="style/include.css">
+        <script src="scripts/profile.js"></script>
+        <title>Buy Instead of Me</title>
+    </head>
+    <body>
+        <header id="page-header">
+            <div class="header-item" id="icon_header_container">
+                <a href="index.html">
+                    <img class="icon" id="logo_img" src="img/icons/logo_hands.png" alt="Лого на TustMe">
+                </a>
+            </div>
+            <div class="header-item" id="profile_header_container">
+                <a id="sign_in" class="header-a" href="login.html">Вход</a>
+                <a id="register"  class="header-a" href="register.html">Регистрация</a>
+                <img class="icon" id="profile_img" src="img/icons/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('delivery-create')">
+            </div>
+        </header>
+        <main class="main">
+            <div class="bad-wrapper">
+                <div class="delivery container">
+                    <div class="delivery__title">Информация за доставка:</div>
+                    <div class="delivery__content">
+                        <div class="column">
+                            <div>Име на клиент: Иван Иванов Иванов</div>
+                            <div>Телефонен номер: +359882345352</div>
+                            <div>Статус на доставка: Доставлено</div>
+                            <div>Цена: 2.5 лв.</div>
+                            <div id="total-weight"></div>
+                        </div>
+                        <div class="column">
+                            <div id="shop"></div>
+                            <div id="address"></div>
+                            <div>Списък с продукти:</div>
+                            <div class="column__list">
+                                <div class="column__list__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="OrderSuccessful.html">
+                        <button class="btn btn-pos gradient-btn" type="submit">Поръчвне</button>
+                    </a>
+                </div>
+            </div>
+        </main>
+        <script src="./scripts/delivery-info.js"></script>
+    </body>
+</html>

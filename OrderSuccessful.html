@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="txt/javascript" src="scripts/main.js"></script>
+        <script src="scripts/takeAndDeliver.js" defer></script>
+        <script src="scripts/profile.js"></script>
+        <link rel="stylesheet" href="style/include.css">
+        <link rel="stylesheet" href="style/no_profile.css">
+    </head>
+    <body>
+        <header id="page-header">
+            <div class="header-item" id="icon_header_container">
+                <a href="index.html">
+                    <img class="icon" id="logo_img" src="img/icons/logo_hands.png" alt="Лого на TustMe">
+                </a>
+            </div>
+            <div class="header-item" id="profile_header_container">
+                <a id="sign_in" class="header-a" href="login.html">Вход</a>
+                <a id="register"  class="header-a" href="register.html">Регистрация</a>
+                <img class="icon" id="profile_img" src="img/icons/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('OrderSuccessful')">
+            </div>
+        </header>
+        <main id="take-and-deliver">
+            <div id="banner_section">
+                <div class="take-and-deliver-page">
+                    <img src="img/icons/check.png" alt="Зелен тик">
+                    <p>Успешно направена поръчка!</p>
+                    <a href="index.html">Начало</a>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

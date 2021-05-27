@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style/delivery.css" />
+        <link rel="stylesheet" href="style/include.css">
+        <link rel="stylesheet" href="style/takeAndDeliver.css">
+        <script src="scripts/profile.js" defer></script>
+        <title>Buy Instead of Me</title>
+    </head>
+    <body>
+        <header id="page-header">
+            <div class="header-item" id="icon_header_container">
+                <a href="index.html">
+                    <img class="icon" id="logo_img" src="img/icons/logo_hands.png" alt="Лого на TustMe">
+                </a>
+            </div>
+            <div class="header-item" id="profile_header_container">
+                <a id="sign_in" class="header-a" href="login.html">Вход</a>
+                <a id="register"  class="header-a" href="register.html">Регистрация</a>
+                <img class="icon" id="profile_img" src="img/icons/account.png" alt="Икона на потребителски профил" onclick="profileRedirect('delivery-create')">
+            </div>
+        </header>
+        <main class="main">
+            <div class="bad-wrapper">
+                <div class="container">
+                    <div class="container__title">
+                        <div id="header-btn-wrap">
+                            <h1>Вземи и достави</h1>
+                        </div>
+                        <hr>
+                    </div>
+                    <form
+                        method="GET"
+                        action="./delivery-info.html"
+                        autocomplete="off"
+                        id="product-form"
+                    >
+                        <div class="form-item">
+                            <div class="form-item__label">Магазин:</div>
+                            <input
+                                type="text"
+                                class="form-item__input"
+                                name="shop"
+                                id="shop"
+                            />
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__label">Адрес за доставка:</div>
+                            <input
+                                type="text"
+                                class="form-item__input"
+                                name="address"
+                                id="address"
+                            />
+                        </div>
+                        <div class="form-item list">
+                            <div class="form-item__label">Списък с продукти:</div>
+                            <div class="list-container">
+                                <div class="column-titles">
+                                    <div class="column-titles__title">
+                                        Име на продукт
+                                    </div>
+                                    <div class="column-titles__title">
+                                        Вид пакетиране
+                                    </div>
+                                    <div class="column-titles__title">гр</div>
+                                </div>
+                                <div class="add-product">
+                                    <input
+                                        type="text"
+                                        id="product-name"
+                                        class="add-product__input"
+                                    />
+                                    <select id="package-type">
+                                        <option value="bulk">насипно</option>
+                                        <option value="package">пакет</option>
+                                        <option value="bottle">бутилка</option>
+                                    </select>
+                                    <div class="add-product__count">
+                                        <input
+                                            id="count"
+                                            type="number"
+                                            class="add-product__input"
+                                            value="0"
+                                        />
+                                    </div>
+                                    <div id="circle" class="add-product__circle">
+                                        +
+                                    </div>
+                                </div>
+                                <div class="list-content"></div>
+                            </div>
+                        </div>
+                        <input
+                            type="hidden"
+                            id="product-data"
+                            name="product_data"
+                        />
+                        <button class="gradient-btn cont-btn" type="submit">Продължи</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script src="scripts/delivery.js"></script>
+    </body>
+</html>
