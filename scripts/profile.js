@@ -1,4 +1,4 @@
-document.getElementById("register-btn").addEventListener("click", register);
+document.getElementById("login-btn").addEventListener("click", login);
 var profile = {
     "tester@example.bg": {
 
