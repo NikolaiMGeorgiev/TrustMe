@@ -13,11 +13,11 @@ var profile = {
     "tester@example.bg": {
 
         "password": "123456",
-        "firstName": "Tester",
-        "lastName": "Testov",
+        "firstName": "Тестер",
+        "lastName": "Тестов",
         "phone": "0983252631",
-        "city": "Sofia",
-        "address": "address",
+        "city": "София",
+        "address": "адрес",
         "isDeliveryMan": false
     }
 };
@@ -25,9 +25,17 @@ var profile = {
 function login() {
     var email = document.getElementById("email");
     var password = document.getElementById("password");
-    var profiles = JSON.parse(localStorage.getItem("profiles"));
-
-    profiles = JSON.parse(localStorage.getItem("profiles"));
+    var profiles = {
+        "tester@example.bg": {
+            "password": "123456",
+            "firstName": "Тестер",
+            "lastName": "Тестов",
+            "phone": "0983252631",
+            "city": "София",
+            "address": "адрес",
+            "isDeliveryMan": false
+        }
+    };
     console.log(profiles);
 
     if(email.value.length === 0){
