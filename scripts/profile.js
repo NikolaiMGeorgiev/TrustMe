@@ -34,11 +34,11 @@ function login() {
         email.classList.add("error");
         document.getElementById('error_email').style.display = 'block';
     }else{
-        if(profiles[email.value] === undefined || profiles[email.value]["password"] !== password.value){
+        if(profiles && (profiles[email.value] === undefined || profiles[email.value]["password"] !== password.value)){
             email.classList.add("error");
             document.getElementById('error_email').style.display = 'block';
             document.getElementById('error_email').textContent = "Невалиден имейл или парола";
-        } else {
+        } else if (profiles){
             let isDeliveryMan = profiles[email.value]["isDeliveryMan"];
             localStorage.setItem("logged", "1");
             localStorage.setItem("currentEmail", email.value);
@@ -66,6 +66,7 @@ function register () {
     var email = document.getElementById("email");
     var isDeliveryMan = document.getElementById("is_delivery_man");
     let profiles = JSON.parse(localStorage.getItem("profiles"));
+    profiles = profiles ? profiles : [];
     var emptyCounter = 0;
 
     if(firstName.value.length === 0){
