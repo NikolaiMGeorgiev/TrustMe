@@ -1,4 +1,14 @@
-document.getElementById("register-btn").addEventListener("click", register);
+if (document.getElementById("login-btn")) {
+    document.getElementById("login-btn").addEventListener("click", function () {
+        login();
+    });
+}
+if (document.getElementById("register-btn")) {
+    document.getElementById("register-btn").addEventListener("click", function () {
+        register();
+    });
+}
+
 var profile = {
     "tester@example.bg": {
 
@@ -10,15 +20,15 @@ var profile = {
         "address": "address",
         "isDeliveryMan": false
     }
-}
-localStorage.setItem("profiles", JSON.stringify(profile));
+};
 
-window.login = function() {
+function login() {
     var email = document.getElementById("email");
     var password = document.getElementById("password");
     var profiles = JSON.parse(localStorage.getItem("profiles"));
 
     profiles = JSON.parse(localStorage.getItem("profiles"));
+    console.log(profiles);
 
     if(email.value.length === 0){
         email.classList.add("error");
@@ -46,7 +56,7 @@ window.login = function() {
     }
 }
 
-window.register = function() {
+function register () {
     var firstName = document.getElementById("first_name");
     var lastName = document.getElementById("last_name");
     var password = document.getElementById("password");
@@ -117,7 +127,7 @@ window.register = function() {
         document.getElementById('error_email').style.display = 'block';
         emptyCounter++;
     }else{
-        if (profiles[email.value] !== undefined ){
+        if (profiles && profiles[email.value] !== undefined ){
             email.classList.add("error");
             document.getElementById('error_email').style.display = 'block';
             document.getElementById('error_email').textContent = "Имейлът вече е регистриран";
